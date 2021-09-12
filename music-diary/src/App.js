@@ -1,26 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import MusicList from './MusicList';
+import Header from './Header';
+import Spotify from './spotify';
+import SongDiaryBody from './song-diary/SongDiaryBody';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          Or don't. Do whatever you want. Bananas.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  var extension = window.location.href.split('#')[1]
+  if (extension == 'music-list') {
+    return (
+      <>
+        <Header />
+        <Spotify />
+        <SongDiaryBody />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Header />
+        <Spotify />
+        <p>{window.location.href}</p>
+      </>
+    );
+  }
 }
 
 export default App;
